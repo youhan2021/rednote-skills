@@ -16,17 +16,17 @@ triggers:
 
 ## 调用子 skill 前的准备工作
 
-在调用任何子 skill 之前，先读取 `references/account 属性.md`，将账号人设/调性/写标题技巧作为 context 传递给子 skill。
+在调用任何子 skill 之前，先读取本目录的 `references/account 属性.md`，将账号人设/调性作为 context 传递给子 skill。
 
 子 skill 目录结构（rednote-skills 仓库）：
 ```
 rednote-skills/
-├── rednote-writer-title/      ← 写标题
+├── rednote-post/              ← 本调度模块
 │   └── references/
-│       └── account 属性.md    ← 账号属性（含写标题技巧）
+│       └── account 属性.md    ← 账号属性（人设/调性/目标受众）
+├── rednote-writer-title/      ← 写标题
 ├── rednote-writer-body/       ← 写正文
-├── rednote-image/             ← 生成图片
-└── rednote-post/              ← 本调度模块
+└── rednote-image/             ← 生成图片
 ```
 
 ---
