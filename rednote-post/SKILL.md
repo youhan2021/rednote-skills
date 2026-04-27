@@ -14,16 +14,35 @@ triggers:
 
 ---
 
+## 调用子 skill 前的准备工作
+
+在调用任何子 skill 之前，先读取 `references/account 属性.md`，将账号人设/调性/写标题技巧作为 context 传递给子 skill。
+
+子 skill 目录结构（rednote-skills 仓库）：
+```
+rednote-skills/
+├── rednote-writer-title/      ← 写标题
+│   └── references/
+│       └── account 属性.md    ← 账号属性（含写标题技巧）
+├── rednote-writer-body/       ← 写正文
+├── rednote-image/             ← 生成图片
+└── rednote-post/              ← 本调度模块
+```
+
+---
+
 ## 工作流程
 
 ```
 用户说"发小红书"/"生成小红书"
 ↓
 ① 调用 rednote-writer-title（写标题）
+   • 读取 references/account 属性.md，作为 context 传入
    • 提炼素材核心亮点
    • 生成 3 个备选标题（每个 ≤ 20字）
    ↓ 用户选定标题（未满意 → 继续修改，直到满意为止）
 ② 调用 rednote-writer-body（写正文）
+   • 读取 references/account 属性.md，作为 context 传入
    • 根据确认的标题定制正文
    • 推荐 Hashtag
    ↓ 用户确认正文（未满意 → 继续修改，直到满意为止）
@@ -38,22 +57,29 @@ triggers:
 
 ---
 
-## Step 1 — 调用 rednote-writer
+## Step 1 — 调用 rednote-writer-title
 
-加载 `rednote-writer` skill，按其 SKILL.md 流程执行：
-- 收集素材 / 理解主题
+加载 `rednote-writer-title` skill，先把 `references/account 属性.md` 的内容作为 context 传入，然后按其 SKILL.md 流程执行：
 - 提炼 3 个核心要点
-- 生成 3 个备选标题
-- 写出正文
-- 推荐 Hashtag
-
-完成后，把标题 + 正文 + Hashtag 完整发给用户确认。
+- 生成 3 个备选标题（每个 ≤ 20字）
 
 **确认通过后，进入 Step 2。**
 
 ---
 
-## Step 2 — 调用 rednote-image
+## Step 2 — 调用 rednote-writer-body
+
+加载 `rednote-writer-body` skill，先把 `references/account 属性.md` 的内容作为 context 传入，按其 SKILL.md 流程执行：
+- 根据确认的标题定制正文
+- 推荐 Hashtag
+
+完成后，把标题 + 正文 + Hashtag 完整发给用户确认。
+
+**确认通过后，进入 Step 3。**
+
+---
+
+## Step 3 — 调用 rednote-image
 
 加载 `rednote-image` skill，按其 SKILL.md 流程执行：
 - 用用户确认的标题生成封面 HTML → 渲染 PNG
@@ -66,7 +92,7 @@ triggers:
 
 ---
 
-## Step 3 — 交付
+## Step 4 — 交付
 
 用户确认图片后，交付完整帖子：
 
