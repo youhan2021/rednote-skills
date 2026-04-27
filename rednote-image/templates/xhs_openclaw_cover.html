@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenClaw 3～4步快速部署</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1080px !important;
+      height: 1440px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: 'Noto Sans SC', 'DejaVu Sans', 'Liberation Sans', 'WenQuanYi Micro Hei', 'Microsoft YaHei', sans-serif !important;
+      background: transparent;
+    }
+    body { overflow: hidden; }
+    .container {
+      width: 1080px;
+      height: 1440px;
+      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 35%), radial-gradient(circle at 80% 80%, rgba(255,255,255,.08), transparent 30%);
+      pointer-events: none;
+    }
+    .card {
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,.95);
+      border-radius: 64px;
+      padding: 68px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 50px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.75);
+    }
+    .badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: linear-gradient(90deg, #f59e0b, #f97316);
+      color: #fff;
+      padding: 20px 32px;
+      border-radius: 1998px;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .title {
+      font-size: 96px;
+      line-height: 1.08;
+      font-weight: 900;
+      color: #111827;
+      margin: 36px 0 0;
+      letter-spacing: -4px;
+    }
+    .title .accent { color: #2563eb; }
+    .subtitle {
+      font-size: 44px;
+      line-height: 1.45;
+      color: #374151;
+      margin: 32px 0 0;
+      font-weight: 500;
+    }
+    .steps {
+      display: grid;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .step {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 36px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .num {
+      width: 68px;
+      height: 68px;
+      border-radius: 24px;
+      background: #2563eb;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 800;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .step-text { flex: 1; }
+    .step-title { font-size: 40px; font-weight: 800; color: #111827; line-height: 1.2; }
+    .step-desc { font-size: 32px; color: #4b5563; line-height: 1.4; margin-top: 8px; }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .pill {
+      background: #111827;
+      color: #fff;
+      font-size: 32px;
+      padding: 16px 24px;
+      border-radius: 1998px;
+      white-space: nowrap;
+    }
+    .note {
+      font-size: 32px;
+      color: #6b7280;
+      line-height: 1.4;
+      text-align: right;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div>
+        <div class="badge">AI 工具 · 新手友好</div>
+        <h1 class="title"><span class="accent">3～4步</span><br/>快速部署 OpenClaw</h1>
+        <p class="subtitle">想试 AI 工作流，不用一开始就把环境搞复杂。先跑通，再优化，效率会高很多。</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div class="step-text">
+            <div class="step-title">安装 Node.js / npm</div>
+            <div class="step-desc">先把运行环境准备好，后面的命令行工具才跑得起来。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="step-text">
+            <div class="step-title">全局安装 OpenClaw</div>
+            <div class="step-desc">装好后就能直接用命令调用，不用反复切环境。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="step-text">
+            <div class="step-title">完成初始化 / 授权</div>
+            <div class="step-desc">按提示走一遍，把账号和基础配置配好。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="step-text">
+            <div class="step-title">启动 gateway，检查状态</div>
+            <div class="step-desc">确认服务真的在线了，再开始正式使用。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="pill">#OpenClaw #AI工具</div>
+        <div class="note">适合新手先跑通，再折腾花活。</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

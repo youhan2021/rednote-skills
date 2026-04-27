@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1440px; font-family: 'Noto Sans SC', sans-serif; overflow: hidden; }
+body { background: #1e1b4b; display: flex; flex-direction: column; }
+.top { height: 100px; background: linear-gradient(135deg,#5b21b6,#7c3aed); flex-shrink: 0; }
+.mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 80px; }
+.line1 { font-size: 96px; font-weight: 900; color: white; text-align: center; letter-spacing: -5px; line-height: 1.05; }
+.line1 .a { color: #fbbf24; }
+.line2 { font-size: 56px; font-weight: 700; color: #fbbf24; text-align: center; margin-top: 24px; letter-spacing: -2px; }
+.line3 { font-size: 42px; font-weight: 500; color: #a78bfa; text-align: center; margin-top: 20px; letter-spacing: 1px; }
+.bot { height: 100px; background: linear-gradient(135deg,#312e81,#1e1b4b); flex-shrink: 0; }
+</style></head><body>
+<div class="top"></div>
+<div class="mid">
+  <div class="line1">{{line1}}</div>
+  <div class="line2">{{line2}}</div>
+  <div class="line3">{{line3}}</div>
+</div>
+<div class="bot"></div>
+</body></html>

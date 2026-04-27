@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1440px; font-family: 'Noto Sans SC', sans-serif; overflow: hidden; }
+body { background: #1e1b4b; display: flex; flex-direction: column; }
+.ph { height: 100px; background: linear-gradient(135deg,#5b21b6,#7c3aed); display: flex; align-items: center; padding: 0 64px; gap: 24px; flex-shrink: 0; }
+.ph-e { font-size: 64px; }
+.ph-t { font-size: 72px; font-weight: 900; color: white; }
+.ph-rank { margin-left: auto; font-size: 32px; color: #ddd6fe; font-weight: 700; }
+.content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 80px; gap: 16px; }
+.skill-name { font-size: 108px; font-weight: 900; color: white; text-align: center; letter-spacing: -5px; line-height: 1.0; }
+.skill-name .a { color: #fbbf24; }
+.divider { width: 240px; height: 8px; background: linear-gradient(90deg,#7c3aed,#fbbf24); border-radius: 4px; }
+.desc { font-size: 40px; color: #c4b5fd; text-align: center; line-height: 1.7; font-weight: 500; max-width: 880px; }
+.feats { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 820px; }
+.feat { background: rgba(255,255,255,0.07); border: 1px solid rgba(167,139,250,0.25); border-radius: 18px; padding: 14px 24px; font-size: 34px; color: white; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+.feat-dot { width: 10px; height: 10px; border-radius: 50%; background: #fbbf24; flex-shrink: 0; }
+.example { width: 100%; max-width: 820px; background: rgba(255,255,255,0.05); border: 1px solid rgba(167,139,250,0.2); border-radius: 18px; padding: 16px 24px; }
+.ex-label { font-size: 24px; color: #a78bfa; font-weight: 700; margin-bottom: 6px; }
+.ex-text { font-size: 30px; color: #ddd6fe; font-style: italic; line-height: 1.6; }
+.install { background: linear-gradient(90deg,#7c3aed,#5b21b6); border-radius: 999px; padding: 18px 48px; color: white; font-size: 36px; font-weight: 900; }
+.bot { height: 100px; background: linear-gradient(135deg,#312e81,#1e1b4b); display: flex; align-items: center; justify-content: center; gap: 16px; padding: 0 48px; flex-shrink: 0; }
+.pill { background: linear-gradient(90deg,#7c3aed,#5b21b6); border-radius: 999px; padding: 14px 32px; color: white; font-size: 28px; font-weight: 700; white-space: nowrap; }
+</style></head><body>
+<div class="ph">
+  <div class="ph-e">{{emoji}}</div>
+  <div class="ph-t">{{category}}</div>
+  <div class="ph-rank">{{rank}} / {{total}}</div>
+</div>
+<div class="content">
+  <div class="skill-name">{{skill_name}}</div>
+  <div class="divider"></div>
+  <div class="desc">{{description}}</div>
+  <div class="feats">{{features}}</div>
+  <div class="example">
+    <div class="ex-label">✨ 示例 Prompt</div>
+    <div class="ex-text">{{example}}</div>
+  </div>
+  <div class="install">{{install}}</div>
+</div>
+<div class="bot">
+  <div class="pill">🔗 clawhub.ai</div>
+  <div class="pill">{{meta}}</div>
+  <div class="pill">✅ 安全</div>
+</div>
+</body></html>
